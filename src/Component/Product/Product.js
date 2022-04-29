@@ -8,7 +8,7 @@ const Product = ({ product }) => {
       <Card className="mb-3">
         <Card.Img variant="top" src={image} />
         <Card.Body>
-          <Card.Title><span className="text-info fw-bold"></span></Card.Title>
+          <Card.Title><span className="text-info fw-bold">{name}</span></Card.Title>
           <div className="d-flex justify-content-between">
             <Card.Text className="fw-bold">Price: ${price}</Card.Text>
             <Card.Text className="fw-bold">Quantity: {quantity}</Card.Text>
