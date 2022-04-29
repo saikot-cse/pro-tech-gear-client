@@ -3,6 +3,7 @@ import { Container, Nav, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../Assets/Images/logo.png";
 import './NavBar.css'
+import { motion } from "framer-motion"
 const NavBar = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
@@ -12,8 +13,10 @@ const NavBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle className="bg-info"  aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
+        
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+          
+            <Nav.Link  as={Link} to="/">
               HOME
             </Nav.Link>
             <Nav.Link as={Link} to="/about">
