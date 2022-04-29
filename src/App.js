@@ -1,8 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "./Component/Shared/Navbar/NavBar";
+import Home from "./Pages/Home/Home";
 function App() {
   return (
     <div>
-      <h1>Assignment Started</h1>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />}/>
+      </Routes>
     </div>
   );
 }
