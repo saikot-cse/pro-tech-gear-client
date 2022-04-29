@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "name": "MacBook Pro",
     "image": "https://i.ibb.co/Z8Rz6wP/macbook-pro.jpg",
     "desc": "The new 14-inch and 16-inch models of MacBook Pro deliver extraordinary pro performance and amazing battery life, thanks to the power and efficiency of Apple silicon.",
@@ -8,6 +9,7 @@
     "supplierName": "Apple"
   },
   {
+    "id": "2",
     "name": "MacBook Air",
     "image": "https://i.ibb.co/vj2LMdQ/macbook-air.jpg",
     "desc": "Our thinnest, lightest notebook, completely transformed by the Apple M1 chip. An advanced Engine for 9x faster machine learning. Longest battery life ever in a MacBook Air.",
@@ -16,14 +18,16 @@
     "supplierName": "Apple"
   },
   {
+    "id": "3",
     "name": "iPhone 13",
-    "image": "https://i.ibb.co/DPJd71M/iphone-13.jpg",
+    "image": "https://i.ibb.co/1bk4Vz7/iphone-13.jpg",
     "desc": "We designed a totally new architecture and turned the lenses almost 45 degrees to fit well in our best dual-camera system ever — with its biggest Wide camera sensor.",
     "price": 699.0,
     "quantity": 10,
     "supplierName": "Apple"
   },
   {
+    "id": "4",
     "name": "iPhone 13 Pro",
     "image": "https://i.ibb.co/PT6t6qM/iphone13-pro.jpg",
     "desc": "A dramatically more powerful camera system ever. A display so responsive, every interaction feels new again. The world’s fastest smartphone chip. Exceptional durability.",
@@ -32,6 +36,7 @@
     "supplierName": "Apple"
   },
   {
+    "id": "5",
     "name": "Lenovo ThinkPad X380",
     "image": "https://i.ibb.co/XxkxRWd/lenovo-thinkpad-x380.jpg",
     "desc": "The X380 retains the timeless ThinkPad design, sporting a black carbon-fiber lid with a ThinkPad logo in the top left-hand corner and silver hinges on the back.",
@@ -40,6 +45,7 @@
     "supplierName": "Lenovo"
   },
   {
+    "id": "6",
     "name": "Lenovo V310",
     "image": "https://i.ibb.co/zVCj0kn/lenovo-v310.jpg",
     "desc": "The Lenovo V310 is designed to your business needs. It's very configurable and has a range of options, from state-of-the-art processing to a flexible storage system. ",
