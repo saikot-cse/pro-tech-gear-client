@@ -6,13 +6,13 @@ const Strength = () => {
     <div className="d-grid container">
       <div className="row">
         <div className="col-md-6 col-sm-12 my-5">
-          <img className="w-100" src={strength} alt="" />
+          <img className="w-100 h-100 mt-5" src={strength} alt="" />
         </div>
-        <div className="col-md-6 col-sm-12 my-5">
-          <h2>
+        <div className="col-md-6 col-sm-12 my-5 gx-5">
+          <h2 className="mt-5">
             Our <span className="text-info">Strength</span>
           </h2>
-          <div className="bg-info rounded-3" style={{ width: "160px", height: "4px" }}>
+          <div className="bg-info rounded-3" style={{ width: "200px", height: "4px" }}>
             .
           </div>
           <p className="mt-3 mb-5">Our objective is to Reduce our clients overall Logistics Cost and Increase their Customer Order Servicability.</p>
@@ -25,7 +25,6 @@ const Strength = () => {
             <p className="lh-sm"><FaCheck className="text-success me-2" /> Low debt equity rating. Lower risk.</p>
           </div>
         </div>
-        <div></div>
       </div>
     </div>
   );

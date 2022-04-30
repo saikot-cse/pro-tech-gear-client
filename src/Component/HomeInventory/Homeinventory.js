@@ -3,7 +3,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
 import Product from "../Product/Product";
-
+import { MdManageSearch } from "react-icons/md";
 const Homeinventory = () => {
   const [products] = useProducts();
   const navigate = useNavigate();
@@ -12,9 +12,9 @@ const Homeinventory = () => {
   };
   return (
     <div>
-      <h1 className="text-center">
+      <h2 className="text-center">
         Our <span className="text-info d-block">Inventory</span>
-      </h1>
+      </h2>
       <div className="bg-info mx-auto rounded-3" style={{ width: "175px", height: "4px" }}>
         .
       </div>
@@ -27,7 +27,7 @@ const Homeinventory = () => {
         </div>
       </div>
       <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
-        Manage Inventories
+        <MdManageSearch className="fs-4 mb-1" />Manage Inventories
       </Button>
     </div>
   );

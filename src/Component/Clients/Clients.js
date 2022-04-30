@@ -8,9 +8,9 @@ import client6 from "../../Assets/Images/client-images/samsung.png";
 const Clients = () => {
   return (
     <div>
-      <h1 className="text-center">
+      <h2 className="text-center">
         Our <span className="text-info d-block">Reputed Clients</span>
-      </h1>
+      </h2>
       <div className="bg-info mx-auto rounded-3" style={{ width: "275px", height: "4px" }}>
         .
       </div>
