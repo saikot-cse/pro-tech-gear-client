@@ -17,23 +17,23 @@ const Clients = () => {
       <p className="text-center mt-3 mb-5">We are currently servicing clients across the sectors of FMCG, Consumer Goods, Retail, B2B and Technology.</p>
       <div className="d-grid container g-5 mb-5">
         <div className="row">
-          <div className="col mb-3">
-            <img className="rounded-circle" src={client1} alt="" />
+          <div className="col-md-2 col-sm-6 mb-3">
+            <img className="rounded-circle img-fluid mx-auto d-block" src={client1} alt="" />
           </div>
-          <div className="col ">
-            <img className="rounded-circle" src={client2} alt="" />
+          <div className="col-md-2 col-sm-6 mb-3">
+            <img className="rounded-circle img-fluid mx-auto d-block" src={client2} alt="" />
           </div>
-          <div className="col">
-            <img className="rounded-circle" src={client3} alt="" />
+          <div className="col-md-2 col-sm-6 mb-3">
+            <img className="rounded-circle img-fluid mx-auto d-block" src={client3} alt="" />
           </div>
-          <div className="col mb-3">
-            <img className="rounded-circle" src={client4} alt="" />
+          <div className="col-md-2 col-sm-6 mb-3">
+            <img className="rounded-circle img-fluid mx-auto d-block" src={client4} alt="" />
           </div>
-          <div className="col">
-            <img className="rounded-circle" src={client5} alt="" />
+          <div className="col-md-2 col-sm-6 mb-3">
+            <img className="rounded-circle img-fluid mx-auto d-block" src={client5} alt="" />
           </div>
-          <div className="col ">
-            <img className="rounded-circle" src={client6} alt="" />
+          <div className="col-md-2 col-sm-6 mb-3">
+            <img className="rounded-circle img-fluid mx-auto d-block" src={client6} alt="" />
           </div>
         </div>
       </div>

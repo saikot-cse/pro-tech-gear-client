@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { MdOutlineScreenSearchDesktop } from "react-icons/md";
 import slide1 from "../../Assets/Images/bannar-images/slider-1.jpg";
 import slide2 from "../../Assets/Images/bannar-images/slider-2.jpg";
 const Bannar = () => {
@@ -19,7 +20,7 @@ const Bannar = () => {
     <Carousel.Caption>
       <h3>Welcome to Pro Tech Gear</h3>
       <p>You'll find one of the best and authentic product here.</p>
-      <Button onClick={navigateToInventory} className="text-white" variant="info">Explore All</Button>
+      <Button onClick={navigateToInventory} className="text-white" variant="info"><MdOutlineScreenSearchDesktop className="fs-5 mb-1 me-2" />Explore All</Button>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>

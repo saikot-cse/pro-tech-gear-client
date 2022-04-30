@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { motion } from "framer-motion";
+import { MdDelete, MdCollections } from "react-icons/md";
 const Product = ({ product }) => {
   const { name, price, image, desc, supplierName, quantity } = product;
   return (
@@ -16,11 +17,11 @@ const Product = ({ product }) => {
           <Card.Text className="fw-bold">Supplier Name: <span className="text-info fw-bold">{supplierName}</span></Card.Text>
           <Card.Text className="lh-lg">{desc}</Card.Text>
           <div className="d-flex justify-content-between">
-            <Button className="font-weight-bolder" variant="info">
-              Manage
+            <Button className="font-weight-bolder text-white" variant="info">
+            <MdCollections className="fs-5 mb-1" /> Manage
             </Button>
             <Button className="font-weight-bolder" variant="danger">
-              Delete
+              <MdDelete className="fs-5 mb-1" /> Delete
             </Button>
           </div>
         </Card.Body>

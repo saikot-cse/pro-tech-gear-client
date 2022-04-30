@@ -1,22 +1,31 @@
 import React from "react";
 import strength from "../../Assets/Images/strength.jpg";
+import { FaCheck } from "react-icons/fa";
 const Strength = () => {
   return (
-    <div className="d-grid">
+    <div className="d-grid container">
       <div className="row">
-        <div className="col">
-          <img src={strength} alt="" />
+        <div className="col-md-6 col-sm-12 my-5">
+          <img className="w-100" src={strength} alt="" />
         </div>
-        <div className="col">
-          <h1 className="text-center">
-            Our <span className="text-info d-block">Strength</span>
-          </h1>
-          <div className="bg-info mx-auto rounded-3" style={{ width: "275px", height: "4px" }}>
+        <div className="col-md-6 col-sm-12 my-5">
+          <h2>
+            Our <span className="text-info">Strength</span>
+          </h2>
+          <div className="bg-info rounded-3" style={{ width: "160px", height: "4px" }}>
             .
           </div>
-          <p className="text-center mt-3 mb-5">Our objective is to Reduce our clients overall Logistics Cost and Increase their Customer Order Servicability.</p>
+          <p className="mt-3 mb-5">Our objective is to Reduce our clients overall Logistics Cost and Increase their Customer Order Servicability.</p>
+          <div>
+            <p className="lh-sm"><FaCheck className="text-success me-2" /> Well established and highly regarded in the electronics market.</p>
+            <p className="lh-sm"><FaCheck className="text-success me-2" /> A dedicated group of engineers working to give the highest quality.</p>
+            <p className="lh-sm"><FaCheck className="text-success me-2" /> Efficient production methods WEAKNESSES</p>
+            <p className="lh-sm"><FaCheck className="text-success me-2" /> Building new relations with suppliers.</p>
+            <p className="lh-sm"><FaCheck className="text-success me-2" /> The target group can choose cheaper models if they want.</p>
+            <p className="lh-sm"><FaCheck className="text-success me-2" /> Low debt equity rating. Lower risk.</p>
+          </div>
         </div>
-        
+        <div></div>
       </div>
     </div>
   );
