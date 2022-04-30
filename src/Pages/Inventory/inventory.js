@@ -6,7 +6,7 @@ const Inventory = () => {
   const [products] = useProducts();
   return (
     <div className='d-grid container'>
-      <h1 className='text-center text-info my-5'>Our Inventory</h1>
+      <h1 className='text-center text-info mt-5'>Our Inventory</h1>
       <div className='row'>
         {
           products.map(product=><Product key={product.id} product ={product}/>)
