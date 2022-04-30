@@ -2,3 +2,18 @@
 .nav-link:hover{
   color: #1DD8DF !important;
 }
+a:hover{
+  color: #1DD8DF !important;
+}
+.social-yt:hover{
+  color: red !important;
+}
+.social-twi:hover{
+  color: #1A8CD8 !important;
+}
+.social-fb:hover{
+  color: #57B5F4 !important;
+}
+.social-in:hover{
+  color: #C725AB !important;
+}

@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
+import Footer from "./Component/Shared/Footer/Footer";
 import NavBar from "./Component/Shared/Navbar/NavBar";
 import About from "./Pages/About/About";
 import Home from "./Pages/Home/Home";
@@ -13,6 +14,7 @@ function App() {
         <Route path="/about" element={<About />}/>
         <Route path="/inventory" element={<Inventory />}/>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }
