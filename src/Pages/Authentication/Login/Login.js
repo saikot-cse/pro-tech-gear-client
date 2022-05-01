@@ -2,24 +2,28 @@ import React from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGithubSquare,FaGoogle } from 'react-icons/fa';
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import Loading from '../../../Component/Loading/Loading';
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
   const handleGoogleSignIn = ()=>{
     signInWithGoogle();
   }
-  if(googleUser){
+  const handleGithubSignIn = ()=>{
+    signInWithGithub();
+  }
+  if(googleUser || githubUser){
     navigate(from, { replace: true })
   }
-  if(googleError){
-    
+  if(googleError || githubError){
+
   }
-  if(googleLoading){
+  if(googleLoading || githubLoading){
     return <Loading />
   }
   return (
@@ -33,7 +37,7 @@ const Login = () => {
             </Button>
           </div>
           <div className="col-md-12 col-sm-12">
-            <Button className="mx-auto d-block fw-bold" variant="dark">
+            <Button onClick={handleGithubSignIn} className="mx-auto d-block fw-bold" variant="dark">
               <FaGithubSquare className="fs-4 me-2"/>Log In with Github
             </Button>
           </div>
