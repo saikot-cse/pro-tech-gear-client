@@ -78,9 +78,16 @@ const Footer = () => {
           <div className="col-md-3 col-sm-12 my-3">
             <h4 className="text-center text-info">Subscribe</h4>
             <p>Sign Up To Our Newsletter And Get The Latest Offers.</p>
-            <input type="email" name="email" placeholder="Your Email" className="w-100 mx-auto border-0 p-2 rounded-3"/>
-            <Button className="text-white my-3 w-50 mx-auto d-block" variant="info">Get Notified</Button>
+            <input type="email" name="email" placeholder="Your Email" className="w-100 mx-auto border-0 p-2 rounded-3" />
+            <Button className="text-white my-3 w-50 mx-auto d-block" variant="info">
+              Get Notified
+            </Button>
           </div>
+        </div>
+        <div className="row text-center text-white">
+          <p>
+            &copy; {new Date().getFullYear()} <span className="text-info">Pro Tech Gear</span> All Rights Reserved.
+          </p>
         </div>
       </div>
     </div>
