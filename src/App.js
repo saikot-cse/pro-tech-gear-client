@@ -7,7 +7,8 @@ import Register from "./Pages/Authentication/Register/Register";
 import Login from "./Pages/Authentication/Login/Login";
 import Home from "./Pages/Home/Home";
 import Inventory from "./Pages/Inventory/Inventory";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
     <div>
@@ -19,6 +20,7 @@ function App() {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element= {<Login />} />
       </Routes>
+      <ToastContainer />
       <Footer></Footer>
     </div>
   );
