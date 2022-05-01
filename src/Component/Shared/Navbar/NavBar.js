@@ -1,15 +1,16 @@
+import { signOut } from "firebase/auth";
 import React from "react";
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../../../Assets/Images/logo.png";
 import auth from "../../../firebase.init";
-import Loading from "../../Loading/Loading";
+// import Loading from "../../Loading/Loading";
 import "./NavBar.css";
 const NavBar = () => {
   const [user, loading, error] = useAuthState(auth);
   if (loading) {
-    return <Loading></Loading>;
+    // return <Loading></Loading>;
   }
   if(error){
     
@@ -50,7 +51,7 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/myitem">
                 MY ITEM
               </Nav.Link>
-              <Button variant="info">Log Out</Button>
+              <Button onClick={() => signOut(auth)} className="text-info bg-light border-0">Log Out</Button>
             </Nav>
           ) : (
             <Nav>

@@ -6,7 +6,6 @@ const Register = () => {
   return (
     <div>
       <h1 className="text-center text-info my-5">Register Here</h1>
-
       <div className="d-grid container">
         <div className="row">
           <div className="col-md-12 col-sm-12">
@@ -28,16 +27,20 @@ const Register = () => {
       </div>
       <Form className="w-50 mx-auto">
         <Form.Group controlId="formGroupEmail">
-          <Form.Label className="text-white">Name</Form.Label>
+          <Form.Label className="text-info">Name</Form.Label>
           <Form.Control type="text" placeholder="Your Name" className="border-info shadow-none text-info" required />
         </Form.Group>
         <Form.Group controlId="formGroupEmail">
-          <Form.Label className="text-white">Email address</Form.Label>
+          <Form.Label className="text-info">Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" className="border-info shadow-none text-info" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formGroupPassword">
-          <Form.Label className="text-white">Password</Form.Label>
+          <Form.Label className="text-info">Password</Form.Label>
           <Form.Control type="password" placeholder="Password" className="border-info shadow-none text-info" required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formGroupPassword">
+          <Form.Label className="text-info">Confirm Password</Form.Label>
+          <Form.Control type="password" placeholder="Confim Password" className="border-info shadow-none text-info" required />
         </Form.Group>
 
         <Button className="w-50 mx-auto d-block text-white fw-bold" variant="info">
