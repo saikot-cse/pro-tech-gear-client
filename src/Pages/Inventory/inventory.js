@@ -1,16 +1,22 @@
-import React from 'react';
-import Product from '../../Component/Product/Product';
-import useProducts from '../../Hooks/useProducts';
+import React from "react";
+import { Button } from "react-bootstrap";
+import Product from "../../Component/Product/Product";
+import useProducts from "../../Hooks/useProducts";
 
 const Inventory = () => {
   const [products] = useProducts();
   return (
-    <div className='d-grid container'>
-      <h1 className='text-center text-info mt-5'>Our Inventory</h1>
-      <div className='row'>
-        {
-          products.map(product=><Product key={product.id} product ={product}/>)
-        }
+    <div className="d-grid container">
+      <div className="d-flex justify-content-between mt-5">
+        <h1 className="text-center text-info">Our Inventory</h1>
+        <Button className="text-white fw-bold" variant="info">
+          Add Items
+        </Button>
+      </div>
+      <div className="row">
+        {products.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );

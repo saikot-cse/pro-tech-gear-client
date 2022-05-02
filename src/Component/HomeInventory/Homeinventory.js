@@ -22,7 +22,7 @@ const Homeinventory = () => {
       <div className="d-grid container">
         <div className="row">
           {products.slice(0, 6).map((product) => (
-            <Product key={product.id} product={product} />
+            <Product key={product._id} product={product} />
           ))}
         </div>
       </div>

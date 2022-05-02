@@ -117,7 +117,7 @@ const Register = () => {
         <div style={{ height: "2px", backgroundColor: "#d9dadb" }} className="w-25"></div>
       </div>
       <Form className="w-50 mx-auto">
-        <Form.Group controlId="formGroupEmail">
+        <Form.Group controlId="formGroupName">
           <Form.Label className="text-info">Name</Form.Label>
           <Form.Control onBlur={handleNameBlur} type="text" placeholder="Your Name" className="border-info shadow-none text-info" required />
         </Form.Group>
@@ -131,9 +131,9 @@ const Register = () => {
           <Form.Control onBlur={handlePasswordblur} type="password" placeholder="Password" className="border-info shadow-none text-info" required />
         </Form.Group>
         <p className="text-info">{passwordError}</p>
-        <Form.Group className="mb-3" controlId="formGroupPassword">
+        <Form.Group className="mb-3" controlId="formGroupConfirmPassword">
           <Form.Label className="text-info">Confirm Password</Form.Label>
-          <Form.Control onBlur={handleConfirmPasswordblur} type="password" placeholder="Confim Password" className="border-info shadow-none text-info" required />
+          <Form.Control onBlur={handleConfirmPasswordblur} type="password" placeholder="Confirm Password" className="border-info shadow-none text-info" required />
         </Form.Group>
         <p className="text-warning">{confirmPasswordError}</p>
         <Button onClick={handleRegister} className="w-50 mx-auto d-block text-white fw-bold" variant="info">
