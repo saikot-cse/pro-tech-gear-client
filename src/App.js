@@ -2,7 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ManageItem from "./Component/ManageInventory/ManageInventory";
+import ManageInventory from "./Component/ManageInventory/ManageInventory";
+import ManageItem from "./Component/ManageItem/ManageItem";
 import Footer from "./Component/Shared/Footer/Footer";
 import NavBar from "./Component/Shared/Navbar/NavBar";
 import About from "./Pages/About/About";
@@ -25,6 +26,14 @@ function App() {
           element={
             <RequireAuth>
               <ManageItem />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/manage"
+          element={
+            <RequireAuth>
+              <ManageInventory />
             </RequireAuth>
           }
         />

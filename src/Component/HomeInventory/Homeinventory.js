@@ -8,7 +8,7 @@ const Homeinventory = () => {
   const [products] = useProducts();
   const navigate = useNavigate();
   const navigateToInventory = () => {
-    navigate("/inventory");
+    navigate("/manage");
   };
   return (
     <div>

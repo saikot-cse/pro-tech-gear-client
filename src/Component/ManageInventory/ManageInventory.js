@@ -1,37 +1,27 @@
-import { Button, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
-import useProductDetails from "../../Hooks/useProductDetails";
+import React from "react";
+import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import Product from "../../Component/Product/Product";
+import useProducts from "../../Hooks/useProducts";
+
 const ManageInventory = () => {
-  const { productId } = useParams();
-  const [product] = useProductDetails(productId);
-  const handleDelivered = (quantity) => {
-    
-  };
+  const [products] = useProducts();
+  const navigate = useNavigate();
+  const handleAddItem = ()=>{
+    navigate('/add');
+  }
   return (
-    <div>
-      <h2 className="text-info text-center my-5">Details of: {product.name}</h2>
-      <div className="col-md-6 col-sm-12 g-lg-5 g-sm-3 mx-auto d-block">
-        <Card className="mb-3">
-          <Card.Img variant="top" src={product.image} />
-          <Card.Body>
-            <Card.Title>
-              <span className="text-info fw-bold">{product.name}</span>
-            </Card.Title>
-            <div className="d-flex justify-content-between">
-              <Card.Text className="fw-bold">Price: ${product.price}</Card.Text>
-              <Card.Text className="fw-bold">Quantity: {product.quantity}</Card.Text>
-            </div>
-            <Card.Text className="fw-bold">
-              Supplier Name: <span className="text-info fw-bold">{product.supplierName}</span>
-            </Card.Text>
-            <Card.Text className="lh-lg">{product.desc}</Card.Text>
-            <div className="d-flex justify-content-between">
-              <Button onClick={() => handleDelivered(product.quantity)} className="font-weight-bolder mx-auto d-block" variant="success">
-                Delivered
-              </Button>
-            </div>
-          </Card.Body>
-        </Card>
+    <div className="d-grid container">
+      <div className="d-flex justify-content-between mt-5">
+        <h1 className="text-center text-info">Manage Inventory</h1>
+        <Button onClick={handleAddItem} className="text-white fw-bold" variant="info">
+          Add Items
+        </Button>
+      </div>
+      <div className="row">
+        {products.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );

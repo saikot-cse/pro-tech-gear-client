@@ -43,7 +43,7 @@ const NavBar = () => {
           {user ? (
             <Nav>
               <Nav.Link as={Link} to="/manage">
-                MANAGE ITEM
+                MANAGE INVENTORY
               </Nav.Link>
               <Nav.Link as={Link} to="/add">
                 ADD ITEM
