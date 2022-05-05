@@ -8,6 +8,7 @@ import Footer from "./Component/Shared/Footer/Footer";
 import NavBar from "./Component/Shared/Navbar/NavBar";
 import About from "./Pages/About/About";
 import AddItems from "./Pages/AddItems/AddItems";
+import Article from "./Pages/Article/Article";
 import Login from "./Pages/Authentication/Login/Login";
 import Register from "./Pages/Authentication/Register/Register";
 import RequireAuth from "./Pages/Authentication/RequireAuth/RequireAuth";
@@ -30,6 +31,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="/blogs" element={<Article />}/>
         <Route
           path="/manage"
           element={

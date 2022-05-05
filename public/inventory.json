@@ -1,7 +1,5 @@
 [
   {
-    "_id": "1",
-    "name": "MacBook Pro",
     "image": "https://i.ibb.co/Z8Rz6wP/macbook-pro.jpg",
     "desc": "The new 14-inch and 16-inch models of MacBook Pro deliver extraordinary pro performance and amazing battery life, thanks to the power and efficiency of Apple silicon.",
     "price": 1999.0,
@@ -9,8 +7,6 @@
     "supplierName": "Apple"
   },
   {
-    "_id": "2",
-    "name": "MacBook Air",
     "image": "https://i.ibb.co/vj2LMdQ/macbook-air.jpg",
     "desc": "Our thinnest, lightest notebook, completely transformed by the Apple M1 chip. An advanced Engine for 9x faster machine learning. Longest battery life ever in a MacBook Air.",
     "price": 1999.0,
@@ -18,8 +14,6 @@
     "supplierName": "Apple"
   },
   {
-    "_id": "3",
-    "name": "iPhone 13",
     "image": "https://i.ibb.co/1bk4Vz7/iphone-13.jpg",
     "desc": "We designed a totally new architecture and turned the lenses almost 45 degrees to fit well in our best dual-camera system ever — with its biggest Wide camera sensor.",
     "price": 699.0,
@@ -27,13 +21,10 @@
     "supplierName": "Apple"
   },
   {
-    "_id": "4",
-    "name": "iPhone 13 Pro",
     "image": "https://i.ibb.co/PT6t6qM/iphone13-pro.jpg",
-    "desc": "A dramatically more powerful camera system ever. A display so responsive, every interaction feels new again. The world’s fastest smartphone chip. Exceptional durability.",
-    "price": 999.0,
-    "quantity": 10,
-    "supplierName": "Apple"
+    "comment": "5",
+    "date": "12 Aug 2022",
+    "desc": "A dramatically more powerful camera system ever. A display so responsive, every interaction feels new again. The world’s fastest smartphone chip. Exceptional durability."
   },
   {
     "_id": "5",
