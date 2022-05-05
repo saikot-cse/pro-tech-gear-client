@@ -51,7 +51,8 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/myitem">
                 MY ITEM
               </Nav.Link>
-              <Button onClick={() => signOut(auth)} className="text-info bg-light border-0">Log Out</Button>
+              <p className="text-warning mt-2 ms-2 text-center">{ (user.displayName)}</p>
+              <Button onClick={() => signOut(auth)} className="text-info bg-light border-0 mb-2">Log Out</Button>
             </Nav>
           ) : (
             <Nav>
@@ -60,6 +61,7 @@ const NavBar = () => {
               </Nav.Link>
             </Nav>
           )}
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>

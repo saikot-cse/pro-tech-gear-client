@@ -12,11 +12,13 @@ const RequireAuth = ({ children }) => {
   if(error){
     
   }
-  if (user) {
-    return children;
-  } else {
+  if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
+  if (user.providerData[0].providerId === "password" && !user.emailVerified) {
+    return <h1>please verify</h1>
+  }
+  return children;
 };
 
 export default RequireAuth;

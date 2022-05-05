@@ -1,11 +1,14 @@
 import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import useDeliverProduct from "../../Hooks/useDeliverProduct";
 import useProductDetails from "../../Hooks/useProductDetails";
 import useProducts from "../../Hooks/useProducts";
 const ManageItem = () => {
   const { productId } = useParams();
   const [product] = useProductDetails(productId);
-  const [products, setProducts] = useProducts();
+  const [delivered,setDelivered] = useDeliverProduct();
+  const [products,setProducts] = useProducts();
+  
   const handleDelivered = (p) => {
     const newQuantity = parseInt(p.quantity) - 1;
 
@@ -27,34 +30,32 @@ const ManageItem = () => {
       body: JSON.stringify(newItem),
     })
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => setDelivered(data));
   };
   const IncreaseStock = (p, number) => {
     const newQuantity = parseInt(p.quantity) + parseInt(number);
 
     const newItem = {
       name: p.name,
-      description: p.description,
+      desc: p.desc,
       price: p.price,
-      img: p.img,
+      image: p.imgage,
       supplierName: p.supplierName,
       quantity: newQuantity,
     };
 
-    const url = `http://localhost:5000/product/${product._id}`;
+    const url = `http://localhost:5000/product/${productId}`;
     fetch(url, {
-        method: 'PUT',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(newItem)
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newItem),
     })
-        .then(res => res.json())
-        .then(data => {
-            console.log('success', data);
-            setProducts(data);
-        });
-}
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  };
+  
   const handleRestock = (event) => {
     event.preventDefault();
     const number = parseInt(event.target.number.value);
@@ -90,20 +91,19 @@ const ManageItem = () => {
                 </Button>
               )}
             </div>
-            <div className="card form-container p-5">
-              <div>
-                <h2 className="form-title mb-5 text-center">Restock Inventory</h2>
-                <form onSubmit={handleRestock}>
-                  <div className="input-group">
-                    <label htmlFor="number">Restock </label>
-                    <input type="number" name="number" required />
-                  </div>
-                  <input className="form-submit w-25" type="submit" required value="Restock" />
-                </form>
-              </div>
-            </div>
           </Card.Body>
         </Card>
+      </div>
+      <div className="w-50 rounded-3 p-5 container">
+        <div>
+          <h2 className="text-info mb-5 text-center">Restock Inventory</h2>
+          <form onSubmit={handleRestock}>
+            <div>
+              <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info mx-auto d-block" placeholder="Re-Stock Quantity" name="number" type="number" required />
+            </div>
+            <input className="w-25 d-block mx-auto btn btn-info text-white" type="submit" required value="Restock" />
+          </form>
+        </div>
       </div>
     </div>
   );

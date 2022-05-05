@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { FaGithubSquare,FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
@@ -10,9 +10,9 @@ const Register = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
   const [createUserWithEmailAndPassword, user, loading, hookError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-  
+  const [updateProfile] = useUpdateProfile(auth);
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -30,9 +30,6 @@ const Register = () => {
   if (googleUser || githubUser) {
     navigate(from, { replace: true });
   }
-  const handleNameBlur = (e) => {
-    setName(e.target.value);
-  };
   const handleEmailblur = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(e.target.value);
@@ -61,8 +58,10 @@ const Register = () => {
       setConfirmPasswordError("Password Dosen't Match");
     }
   };
-  const handleRegister = () => {
-    createUserWithEmailAndPassword(email, password);
+  const handleRegister = async() => {
+   await createUserWithEmailAndPassword(email, password);
+   await updateProfile( {displayName} );
+   
   };
 
   useEffect(() => {
@@ -119,7 +118,7 @@ const Register = () => {
       <Form className="w-50 mx-auto">
         <Form.Group controlId="formGroupName">
           <Form.Label className="text-info">Name</Form.Label>
-          <Form.Control onBlur={handleNameBlur} type="text" placeholder="Your Name" className="border-info shadow-none text-info" required />
+          <Form.Control onBlur={e=>setDisplayName(e.target.name.value)} type="text" placeholder="Your Name" name='displayName' className="border-info shadow-none text-info" required />
         </Form.Group>
         <Form.Group controlId="formGroupEmail">
           <Form.Label className="text-info">Email address</Form.Label>

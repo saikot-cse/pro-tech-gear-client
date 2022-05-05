@@ -68,6 +68,9 @@ const Login = () => {
         case "auth/popup-closed-by-user":
           toast("having issue? Register with Email", { theme: "dark" });
           break;
+        // case "auth/missing-email":
+        //   toast("Please enter email first", { theme: "dark" });
+        //   break;
         default:
           toast("something went wrong", { theme: "dark" });
       }
@@ -117,6 +120,7 @@ const Login = () => {
         <div>
           <Link
             onClick={async () => {
+              
               await sendPasswordResetEmail(email);
               toast("Sent email");
             }}
