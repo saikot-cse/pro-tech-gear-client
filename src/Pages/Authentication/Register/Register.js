@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useCreateUserWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { FaGithubSquare,FaGoogle } from 'react-icons/fa';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import Loading from '../../../Component/Loading/Loading';
+import { Helmet } from 'react-helmet-async';
+import useToken from '../../../Hooks/useToken';
 const Register = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
@@ -16,20 +18,19 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  console.log(confirmPassword);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [token] = useToken(googleUser || githubUser || user);
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
   const handleGoogleSignUp = () => {
     signInWithGoogle();
   };
   const handleGithubSignUp = () => {
     signInWithGithub();
   };
-  if (googleUser || githubUser) {
-    navigate(from, { replace: true });
-  }
   const handleEmailblur = (e) => {
     const emailRegex = /\S+@\S+\.\S+/;
     const validEmail = emailRegex.test(e.target.value);
@@ -65,10 +66,10 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
+    if (token) {
+      navigate('/');
     }
-  }, [user,navigate,from]);
+  }, [navigate,token]);
   useEffect(() => {
     const error = hookError || googleError || githubError;
     if (error) {
@@ -95,6 +96,9 @@ const Register = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Register - Pro Tech Gear</title>
+      </Helmet>
       <h1 className="text-center text-info my-5">Register Here</h1>
       <div className="d-grid container">
         <div className="row">

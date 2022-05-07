@@ -1,26 +1,27 @@
 import { Button, Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import useDeliverProduct from "../../Hooks/useDeliverProduct";
+import { toast } from "react-toastify";
 import useProductDetails from "../../Hooks/useProductDetails";
 import useProducts from "../../Hooks/useProducts";
+import Loading from "../Loading/Loading";
 const ManageItem = () => {
   const { productId } = useParams();
-  const [product] = useProductDetails(productId);
-  const [delivered,setDelivered] = useDeliverProduct();
-  const [products,setProducts] = useProducts();
-  
+  const [product,setProduct, loading] = useProductDetails(productId);
+
+  const [products, setProducts] = useProducts();
+  console.log(products);
   const handleDelivered = (p) => {
     const newQuantity = parseInt(p.quantity) - 1;
 
     const newItem = {
       name: p.name,
-      description: p.description,
+      desc: p.desc,
       price: p.price,
-      img: p.img,
+      image: p.image,
       supplierName: p.supplierName,
       quantity: newQuantity,
     };
-
+    
     const url = `http://localhost:5000/product/${productId}`;
     fetch(url, {
       method: "PUT",
@@ -30,7 +31,7 @@ const ManageItem = () => {
       body: JSON.stringify(newItem),
     })
       .then((res) => res.json())
-      .then((data) => setDelivered(data));
+      .then((data) => {loading?<Loading /> : setProducts(data)});
   };
   const IncreaseStock = (p, number) => {
     const newQuantity = parseInt(p.quantity) + parseInt(number);
@@ -51,16 +52,18 @@ const ManageItem = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(newItem),
+      
     })
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {loading ? <Loading /> : setProducts(data)});
   };
-  
+
   const handleRestock = (event) => {
     event.preventDefault();
     const number = parseInt(event.target.number.value);
     IncreaseStock(product, number);
     event.target.reset();
+    toast("Item Re-Stocked Successfully");
   };
   return (
     <div>

@@ -36,9 +36,6 @@ const NavBar = () => {
             <Nav.Link as={Link} to="/blogs">
               BLOGS
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact">
-              CONTACT
-            </Nav.Link>
           </Nav>
           {user ? (
             <Nav>
@@ -48,8 +45,8 @@ const NavBar = () => {
               <Nav.Link as={Link} to="/add">
                 ADD ITEM
               </Nav.Link>
-              <Nav.Link as={Link} to="/myitem">
-                MY ITEM
+              <Nav.Link as={Link} to="/myitems">
+                MY ITEMS
               </Nav.Link>
               <p className="text-warning mt-2 ms-2 text-center">{ (user.displayName)}</p>
               <Button onClick={() => signOut(auth)} className="text-info bg-light border-0 mb-2">Log Out</Button>

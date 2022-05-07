@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import Blogs from '../../Component/Blogs/Blogs';
 import useBlogs from '../../Hooks/useBlogs';
 
@@ -6,6 +7,9 @@ const Article = () => {
   const [blogs] = useBlogs();
   return (
     <div className="d-grid container">
+      <Helmet>
+        <title>Blogs - Pro Tech Gear</title>
+      </Helmet>
       <h2 className="text-center mt-3">
         Our
         <span className="text-info"> Articals</span>

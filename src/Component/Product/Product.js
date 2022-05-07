@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 import { MdCollections, MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
-const Product = ({ product }) => {
+const Product = ({ product, hideDelete ,loading}) => {
   const { _id, name, price, image, desc, supplierName, quantity } = product;
   const navigate = useNavigate();
 
@@ -44,15 +44,22 @@ const Product = ({ product }) => {
           </Card.Text>
           <Card.Text className="lh-lg">{desc}</Card.Text>
           <div className="d-flex justify-content-between">
-            <Button onClick={() => handleManageItem(_id)} className="font-weight-bolder text-white" variant="info">
-              <MdCollections className="fs-5 mb-1" /> Stock Update
-            </Button>
-            {/* <Button onClick={()=>handleManageItem(_id)} className="font-weight-bolder text-white d-block mx-auto" variant="info">
-            <MdCollections className="fs-5 mb-1" /> Stock Update
-            </Button> */}
-            <Button onClick={() => handleDelete(_id)} className="font-weight-bolder" variant="danger">
-              <MdDelete className="fs-5 mb-1" /> Delete
-            </Button>
+            {hideDelete !== undefined ? (
+              <>
+                <Button onClick={() => handleManageItem(_id)} className="font-weight-bolder text-white mx-auto d-block" variant="info">
+                  <MdCollections className="fs-5 mb-1" /> Stock Update
+                </Button>
+              </>
+            ) : (
+              <>
+                <Button onClick={() => handleManageItem(_id)} className="font-weight-bolder text-white" variant="info">
+                  <MdCollections className="fs-5 mb-1" /> Stock Update
+                </Button>
+                <Button onClick={() => handleDelete(_id)} className="font-weight-bolder" variant="danger">
+                  <MdDelete className="fs-5 mb-1" /> Delete
+                </Button>
+              </>
+            )}
           </div>
         </Card.Body>
       </Card>

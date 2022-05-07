@@ -1,12 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import { MdManageSearch } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
+import Loading from "../Loading/Loading";
 import Product from "../Product/Product";
-import { MdManageSearch } from "react-icons/md";
 const Homeinventory = () => {
-  const [products] = useProducts();
+  const [products, setproducts, loading] = useProducts();
   const navigate = useNavigate();
+  let hideDelete = 1;
   const navigateToInventory = () => {
     navigate("/manage");
   };
@@ -20,14 +22,21 @@ const Homeinventory = () => {
       </div>
       <p className="text-center my-3">Through our experienced operations team we can handle various kind of supply chain operations and services</p>
       <div className="d-grid container">
-        <div className="row">
-          {products.slice(0, 6).map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
+        <div>
+          {loading ? (
+            <Loading />
+          ) : (
+            <div className="row">
+              {products.slice(0, 6).map((product) => (
+                <Product key={product._id} product={product} hideDelete={hideDelete} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
-        <MdManageSearch className="fs-4 mb-1" />Manage Inventories
+        <MdManageSearch className="fs-4 mb-1" />
+        Manage Inventories
       </Button>
     </div>
   );

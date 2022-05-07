@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { Helmet } from "react-helmet-async";
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../../Component/Loading/Loading";
 import auth from "../../../firebase.init";
+import useToken from "../../../Hooks/useToken";
 const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
   const [signInWithGithub, githubUser, githubLoading, githubError] = useSignInWithGithub(auth);
@@ -18,6 +20,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [token] = useToken(googleUser || githubUser || user);
   const handleGoogleSignIn = () => {
     signInWithGoogle();
   };
@@ -44,10 +47,10 @@ const Login = () => {
       setPasswordError("Must content eight characters, at least one letter and one number");
     }
   };
-  const handleLogin = () => {
-    signInWithEmailAndPassword(email, password);
+  const handleLogin = async() => {
+    await signInWithEmailAndPassword(email, password);
   };
-  if (googleUser || githubUser || user) {
+  if (token) {
     navigate(from, { replace: true });
   }
   useEffect(() => {
@@ -82,6 +85,9 @@ const Login = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Login - Pro Tech Gear</title>
+      </Helmet>
       <h1 className="text-center my-5">
         Welcome to <span className="text-info">Login</span>
       </h1>
