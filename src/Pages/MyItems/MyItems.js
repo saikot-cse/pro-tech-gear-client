@@ -7,14 +7,14 @@ import axiosPrivate from "../../Api/AxiosPrivate";
 import Product from "../../Component/Product/Product";
 import auth from "../../firebase.init";
 const MyItems = () => {
-  const [items,setItems] = useState([]);
+  const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const [user] = useAuthState(auth);
-  useEffect(()=>{
-    const getMyItems = async()=>{
+  useEffect(() => {
+    const getMyItems = async () => {
       const email = user?.email;
-    const url = `http://localhost:5000/myitems?email=${email}`;
-    try {
+      const url = `https://aqueous-refuge-27157.herokuapp.com/myitems?email=${email}`;
+      try {
         const { data } = await axiosPrivate.get(url);
         setItems(data);
       } catch (error) {
@@ -26,7 +26,7 @@ const MyItems = () => {
       }
     };
     getMyItems();
-  },[user,items,navigate])
+  }, [user, items, navigate]);
   return (
     <div className="d-grid container">
       <Helmet>
@@ -40,9 +40,9 @@ const MyItems = () => {
         .
       </div>
       <div className="row">
-      {
-        items.map(product=><Product key={product._id} product = {product}/>)
-      }
+        {items.map((product) => (
+          <Product key={product._id} product={product} />
+        ))}
       </div>
     </div>
   );

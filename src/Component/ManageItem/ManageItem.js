@@ -1,13 +1,12 @@
 import { Button, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { MdManageSearch } from "react-icons/md";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useProductDetails from "../../Hooks/useProductDetails";
 import useProducts from "../../Hooks/useProducts";
-import Loading from "../Loading/Loading";
 const ManageItem = () => {
   const { productId } = useParams();
-  const [product,setProduct, loading] = useProductDetails(productId);
-
+  const [product, setProduct] = useProductDetails(productId);
   const [products, setProducts] = useProducts();
   console.log(products);
   const handleDelivered = (p) => {
@@ -21,8 +20,8 @@ const ManageItem = () => {
       supplierName: p.supplierName,
       quantity: newQuantity,
     };
-    
-    const url = `http://localhost:5000/product/${productId}`;
+
+    const url = `https://aqueous-refuge-27157.herokuapp.com/product/${productId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -31,7 +30,9 @@ const ManageItem = () => {
       body: JSON.stringify(newItem),
     })
       .then((res) => res.json())
-      .then((data) => {loading?<Loading /> : setProducts(data)});
+      .then((data) => {
+        setProducts(data);
+      });
   };
   const IncreaseStock = (p, number) => {
     const newQuantity = parseInt(p.quantity) + parseInt(number);
@@ -45,17 +46,18 @@ const ManageItem = () => {
       quantity: newQuantity,
     };
 
-    const url = `http://localhost:5000/product/${productId}`;
+    const url = `https://aqueous-refuge-27157.herokuapp.com/product/${productId}`;
     fetch(url, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(newItem),
-      
     })
       .then((res) => res.json())
-      .then((data) => {loading ? <Loading /> : setProducts(data)});
+      .then((data) => {
+        setProducts(data);
+      });
   };
 
   const handleRestock = (event) => {
@@ -64,6 +66,10 @@ const ManageItem = () => {
     IncreaseStock(product, number);
     event.target.reset();
     toast("Item Re-Stocked Successfully");
+  };
+  const navigate = useNavigate();
+  const navigateToInventory = () => {
+    navigate("/manage");
   };
   return (
     <div>
@@ -107,6 +113,10 @@ const ManageItem = () => {
             <input className="w-25 d-block mx-auto btn btn-info text-white" type="submit" required value="Restock" />
           </form>
         </div>
+        <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
+          <MdManageSearch className="fs-4 mb-1" />
+          Manage Inventories
+        </Button>
       </div>
     </div>
   );

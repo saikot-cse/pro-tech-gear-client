@@ -5,13 +5,13 @@ const useProductDetails = (productId) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${productId}`)
+    fetch(`https://aqueous-refuge-27157.herokuapp.com/product/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);
         setLoading(false);
       });
-  }, [productId,product]);
-  return [product, setProduct,loading];
+  }, [productId, product]);
+  return [product, setProduct, loading];
 };
 export default useProductDetails;

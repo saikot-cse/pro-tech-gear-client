@@ -1,14 +1,13 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import React from "react";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
-import { toast } from 'react-toastify';
-import useProducts from '../../Hooks/useProducts';
+import { toast } from "react-toastify";
+import useProducts from "../../Hooks/useProducts";
 const AddItems = () => {
-  
   const { register, handleSubmit } = useForm();
-  const [products,setProducts] = useProducts();
+  const [products, setProducts] = useProducts();
   console.log(products);
-  const onSubmit = (data,e) => {
+  const onSubmit = (data, e) => {
     const newItem = {
       name: e.target.name.value,
       desc: e.target.desc.value,
@@ -16,9 +15,9 @@ const AddItems = () => {
       image: e.target.image.value,
       supplierName: e.target.supplierName.value,
       quantity: e.target.quantity.value,
-      email: e.target.email.value
+      email: e.target.email.value,
     };
-    const url = `http://localhost:5000/product`;
+    const url = `https://aqueous-refuge-27157.herokuapp.com/product`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -28,25 +27,25 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((result) => setProducts(result));
-      toast("Items Added Successfully");
-      e.target.reset();
-  }
+    toast("Items Added Successfully");
+    e.target.reset();
+  };
   return (
-    <div className='w-50 d-block mx-auto'>
+    <div className="w-50 d-block mx-auto">
       <Helmet>
         <title>Add Item - Pro Tech Gear</title>
       </Helmet>
-      <h1 className='text-info text-center my-3'>Add Items</h1>
-      <form className='d-flex flex-column shadow-none' onSubmit={handleSubmit(onSubmit)}>
-      <input style={{borderColor: "#0DCAF0"}} className='mb-3 rounded-3 p-2 text-info' name="email" placeholder='Your Email' {...register("email")} required/>
-      <input style={{borderColor: "#0DCAF0"}} className='mb-3 rounded-3 p-2 text-info' name="name" placeholder='Product Name' {...register("name")} required/>
-      <input style={{borderColor: "#0DCAF0"}} className='mb-3 rounded-3 p-2 text-info' name="supplierName" placeholder='Supplier Name' {...register("supplierName")}required/>
-      <input style={{borderColor: "#0DCAF0"}} className='mb-3 rounded-3 p-2 text-info' name="price" placeholder='Enter Price Amount' type="number" {...register("price")} required/>
-      <input style={{borderColor: "#0DCAF0"}} className='mb-3 rounded-3 p-2 text-info' name="quantity" placeholder='Enter Quantity' type="number" {...register("quantity")} required/>
-      <input name="image" placeholder='Enter Image URL' style={{borderColor: "#0DCAF0"}}  className='mb-3 rounded-3 p-2 text-info' {...register("image")} required/>
-      <textarea style={{borderColor: "#0DCAF0"}} className='mb-3 rounded-3 p-2 text-info' name="desc" placeholder='Product Description' {...register("desc")}required/>
-      <input className='p-2 bg-info border-0 text-white w-50 rounded-3 mx-auto d-block' type="submit" value="Add Item" />
-    </form>
+      <h1 className="text-info text-center my-3">Add Items</h1>
+      <form className="d-flex flex-column shadow-none" onSubmit={handleSubmit(onSubmit)}>
+        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="email" placeholder="Your Email" {...register("email")} required />
+        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="name" placeholder="Product Name" {...register("name")} required />
+        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="supplierName" placeholder="Supplier Name" {...register("supplierName")} required />
+        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="price" placeholder="Enter Price Amount" type="number" {...register("price")} required />
+        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="quantity" placeholder="Enter Quantity" type="number" {...register("quantity")} required />
+        <input name="image" placeholder="Enter Image URL" style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" {...register("image")} required />
+        <textarea style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="desc" placeholder="Product Description" {...register("desc")} required />
+        <input className="p-2 bg-info border-0 text-white w-50 rounded-3 mx-auto d-block" type="submit" value="Add Item" />
+      </form>
     </div>
   );
 };

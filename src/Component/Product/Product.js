@@ -4,7 +4,7 @@ import { Button, Card } from "react-bootstrap";
 import { MdCollections, MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
-const Product = ({ product, hideDelete ,loading}) => {
+const Product = ({ product, hideDelete, loading }) => {
   const { _id, name, price, image, desc, supplierName, quantity } = product;
   const navigate = useNavigate();
 
@@ -15,7 +15,7 @@ const Product = ({ product, hideDelete ,loading}) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      fetch(`http://localhost:5000/product/${id}`, {
+      fetch(`https://aqueous-refuge-27157.herokuapp.com/product/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
