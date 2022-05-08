@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 const Inventory = () => {
   const [products, setProducts, loading] = useProducts();
   const navigate = useNavigate();
+  let hideDelete = 1;
   const handleAddItem = () => {
     navigate("/add");
   };
@@ -32,7 +33,7 @@ const Inventory = () => {
         ) : (
           <div className="row">
             {products.map((product) => (
-              <Product key={product._id} product={product} />
+              <Product key={product._id} product={product} hideDelete = {hideDelete}/>
             ))}
           </div>
         )}
