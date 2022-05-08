@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "framer-motion";
 import { AiFillCheckCircle } from 'react-icons/ai';
 import verifyEmail from '../../Assets/Images/verify-email.png';
 const VerifyEmail = () => {

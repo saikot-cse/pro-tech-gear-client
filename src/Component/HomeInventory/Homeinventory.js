@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import useProducts from "../../Hooks/useProducts";
 import Loading from "../Loading/Loading";
 import Product from "../Product/Product";
+import { motion } from "framer-motion";
 const Homeinventory = () => {
   const [products, setproducts, loading] = useProducts();
   const navigate = useNavigate();
@@ -34,10 +35,12 @@ const Homeinventory = () => {
           )}
         </div>
       </div>
-      <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
-        <MdManageSearch className="fs-4 mb-1" />
-        Manage Inventories
-      </Button>
+      <motion.div whileHover={{ scale: 1.1 }}>
+        <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
+          <MdManageSearch className="fs-4 mb-1" />
+          Manage Inventories
+        </Button>
+      </motion.div>
     </div>
   );
 };

@@ -1,12 +1,13 @@
+import { motion } from "framer-motion";
 import { Button, Card } from "react-bootstrap";
-import { MdManageSearch } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 import { BsFillCartCheckFill } from "react-icons/bs";
 import { CgTrashEmpty } from "react-icons/cg";
+import { MdManageSearch } from "react-icons/md";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import useProductDetails from "../../Hooks/useProductDetails";
 import useProducts from "../../Hooks/useProducts";
-import { Helmet } from "react-helmet-async";
 const ManageItem = () => {
   const { productId } = useParams();
   const [product, setProduct] = useProductDetails(productId);
@@ -35,9 +36,8 @@ const ManageItem = () => {
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
-        toast("Item Delivered Successfully")
+        toast("Item Delivered Successfully");
       });
-      
   };
   const IncreaseStock = (p, number) => {
     const newQuantity = parseInt(p.quantity) + parseInt(number);
@@ -63,7 +63,6 @@ const ManageItem = () => {
       .then((data) => {
         setProducts(data);
       });
-      
   };
 
   const handleRestock = (event) => {
@@ -101,11 +100,12 @@ const ManageItem = () => {
             <div className="d-flex justify-content-between">
               {parseInt(product.quantity) <= 0 ? (
                 <Button disabled onClick={() => handleDelivered(product)} className="font-weight-bolder mx-auto d-block" variant="danger">
-                  Stock Out <CgTrashEmpty className="fs-5 mb-1 ms-1"/>
+                  Stock Out <CgTrashEmpty className="fs-5 mb-1 ms-1" />
                 </Button>
               ) : (
                 <Button onClick={() => handleDelivered(product)} className="font-weight-bolder mx-auto d-block" variant="success">
-                 Delivered<BsFillCartCheckFill className="fs-5 mb-1 ms-1"/>
+                  Delivered
+                  <BsFillCartCheckFill className="fs-5 mb-1 ms-1" />
                 </Button>
               )}
             </div>
@@ -117,15 +117,17 @@ const ManageItem = () => {
           <h2 className="text-info mb-5 text-center">Restock Inventory</h2>
           <form onSubmit={handleRestock}>
             <div>
-              <input style={{ borderColor: "#0DCAF0", width:'100%' }} className=" mb-3 rounded-3 p-2  d-block mx-auto" placeholder="Re-Stock Quantity" name="number" type="number" required />
+              <input style={{ borderColor: "#0DCAF0", width: "100%" }} className=" mb-3 rounded-3 p-2  d-block mx-auto" placeholder="Re-Stock Quantity" name="number" type="number" required />
             </div>
             <input className="d-block mx-auto btn btn-info text-white" type="submit" required value="Restock" />
           </form>
         </div>
-        <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
-          <MdManageSearch className="fs-4 mb-1" />
-          Manage Inventories
-        </Button>
+        <motion.div whileHover={{ scale: 1.1 }}>
+          <Button onClick={navigateToInventory} className="text-white d-block mx-auto mt-4 mb-5" variant="info">
+            <MdManageSearch className="fs-4 mb-1" />
+            Manage Inventories
+          </Button>
+        </motion.div>
       </div>
     </div>
   );

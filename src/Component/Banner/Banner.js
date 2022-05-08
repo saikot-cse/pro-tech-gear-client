@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Button, Carousel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineScreenSearchDesktop } from "react-icons/md";

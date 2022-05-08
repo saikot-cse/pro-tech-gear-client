@@ -6,7 +6,7 @@ import { RiInstagramFill } from "react-icons/ri";
 import { TiLocation, TiSocialFacebook, TiSocialTwitter, TiSocialYoutube } from "react-icons/ti";
 import { Link } from "react-router-dom";
 import "../../Shared/Navbar/NavBar.css";
-
+import { motion } from "framer-motion";
 const Footer = () => {
   return (
     <div style={{ backgroundColor: "#0C1A32" }}>

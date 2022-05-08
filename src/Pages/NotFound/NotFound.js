@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button } from 'react-bootstrap';
-import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { Button } from "react-bootstrap";
+import { Helmet } from "react-helmet-async";
+import { useNavigate } from "react-router-dom";
 import pageNotFound from "../../Assets/Images/pageNotFound.jpg";
 const NotFound = () => {
   const navigate = useNavigate();
