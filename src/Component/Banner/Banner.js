@@ -18,7 +18,7 @@ const Bannar = () => {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3 className="fw-bold text-info">Welcome to Pro Tech Gear</h3>
+      <h4 className="fw-bold text-info">Welcome to Pro Tech Gear</h4>
       <p>You'll find one of the best and authentic product here.</p>
       <Button onClick={navigateToInventory} className="text-white" variant="info"><MdOutlineScreenSearchDesktop className="fs-5 mb-1 me-2" />Explore All</Button>
     </Carousel.Caption>
