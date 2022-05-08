@@ -128,17 +128,17 @@ const Register = () => {
           <Form.Label className="text-info">Email address</Form.Label>
           <Form.Control onBlur={handleEmailblur} type="email" placeholder="Enter email" className="border-info shadow-none text-info" required />
         </Form.Group>
-        <p className="text-info">{emailError}</p>
+        <p className="text-danger">{emailError}</p>
         <Form.Group className="mb-3" controlId="formGroupPassword">
           <Form.Label className="text-info">Password</Form.Label>
           <Form.Control onBlur={handlePasswordblur} type="password" placeholder="Password" className="border-info shadow-none text-info" required />
         </Form.Group>
-        <p className="text-info">{passwordError}</p>
+        <p className="text-danger">{passwordError}</p>
         <Form.Group className="mb-3" controlId="formGroupConfirmPassword">
           <Form.Label className="text-info">Confirm Password</Form.Label>
           <Form.Control onBlur={handleConfirmPasswordblur} type="password" placeholder="Confirm Password" className="border-info shadow-none text-info" required />
         </Form.Group>
-        <p className="text-warning">{confirmPasswordError}</p>
+        <p className="text-danger">{confirmPasswordError}</p>
         <Button onClick={handleRegister} className="w-50 mx-auto d-block text-white fw-bold" variant="info">
           Register
         </Button>

@@ -3,6 +3,7 @@ import { Button, Form } from "react-bootstrap";
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Helmet } from "react-helmet-async";
 import { FaGithubSquare, FaGoogle } from "react-icons/fa";
+import { FiLogIn } from "react-icons/fi";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../../../Component/Loading/Loading";
@@ -138,7 +139,7 @@ const Login = () => {
         </div>
 
         <Button onClick={handleLogin} className="w-50 mx-auto d-block text-white fw-bold" variant="info">
-          Login
+         <FiLogIn className="fs-4 me-2" />Login 
         </Button>
         <div className="d-flex align-items-center justify-content-center mt-3">
           <div style={{ height: "2px", backgroundColor: "#d9dadb" }} className="w-50"></div>

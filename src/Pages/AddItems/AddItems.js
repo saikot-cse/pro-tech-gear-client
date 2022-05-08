@@ -1,10 +1,13 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 import useProducts from "../../Hooks/useProducts";
 const AddItems = () => {
   const { register, handleSubmit } = useForm();
+  const [user] = useAuthState(auth);
   const [products, setProducts] = useProducts();
   console.log(products);
   const onSubmit = (data, e) => {
@@ -37,7 +40,7 @@ const AddItems = () => {
       </Helmet>
       <h1 className="text-info text-center my-3">Add Items</h1>
       <form className="d-flex flex-column shadow-none" onSubmit={handleSubmit(onSubmit)}>
-        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="email" placeholder="Your Email" {...register("email")} required />
+        <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="email" disabled readOnly value={user?.email} placeholder="Your Email" {...register("email")} required />
         <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="name" placeholder="Product Name" {...register("name")} required />
         <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="supplierName" placeholder="Supplier Name" {...register("supplierName")} required />
         <input style={{ borderColor: "#0DCAF0" }} className="mb-3 rounded-3 p-2 text-info" name="price" placeholder="Enter Price Amount" type="number" {...register("price")} required />

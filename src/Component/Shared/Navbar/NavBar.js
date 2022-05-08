@@ -5,7 +5,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import logo from "../../../Assets/Images/logo.png";
 import auth from "../../../firebase.init";
-// import Loading from "../../Loading/Loading";
+import CustomLink from "../../Customlink/CustomLink";
+
 import "./NavBar.css";
 const NavBar = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -24,39 +25,39 @@ const NavBar = () => {
         <Navbar.Toggle className="bg-info" aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="text-center" id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link as={Link} to="/">
+            <CustomLink className=" me-3" to="/">
               HOME
-            </Nav.Link>
-            <Nav.Link as={Link} to="/about">
+            </CustomLink>
+            <CustomLink className=" me-3" to="/about">
               ABOUT
-            </Nav.Link>
-            <Nav.Link as={Link} to="/inventory">
+            </CustomLink>
+            <CustomLink className=" me-3" to="/inventory">
               INVENTORY
-            </Nav.Link>
-            <Nav.Link as={Link} to="/blogs">
+            </CustomLink>
+            <CustomLink className=" me-3" to="/blogs">
               BLOGS
-            </Nav.Link>
+            </CustomLink>
           </Nav>
           {user ? (
-            <Nav>
-              <Nav.Link as={Link} to="/manage">
+            <>
+              <CustomLink className=" me-3" to="/manage">
                 MANAGE INVENTORY
-              </Nav.Link>
-              <Nav.Link as={Link} to="/add">
+              </CustomLink>
+              <CustomLink className=" me-3" to="/add">
                 ADD ITEM
-              </Nav.Link>
-              <Nav.Link as={Link} to="/myitems">
+              </CustomLink>
+              <CustomLink className=" me-3" to="/myitems">
                 MY ITEMS
-              </Nav.Link>
-              <p className="text-warning mt-2 ms-2 text-center">{ (user.displayName)}</p>
-              <Button onClick={() => signOut(auth)} className="text-info bg-light border-0 mb-2">Log Out</Button>
-            </Nav>
+              </CustomLink>
+              <p className="text-info ms-2 text-center mt-3">{ (user.displayName)}</p>
+              <Button onClick={() => signOut(auth)} className="text-danger bg-light border-0">Log Out</Button>
+            </>
           ) : (
-            <Nav>
-              <Nav.Link as={Link} to="/login">
+            <>
+              <CustomLink className=" me-3" to="/login">
                 LOGIN
-              </Nav.Link>
-            </Nav>
+              </CustomLink>
+            </>
           )}
           
         </Navbar.Collapse>

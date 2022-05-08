@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../Component/Loading/Loading";
 import Product from "../../Component/Product/Product";
 import useProducts from "../../Hooks/useProducts";
-
+import { IoAddCircle } from "react-icons/io5";
 const Inventory = () => {
   const [products,setProducts,loading] = useProducts();
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Inventory = () => {
       <div className="d-flex justify-content-between mt-5">
         <h1 className="text-center text-info">Our Inventory</h1>
         <Button onClick={handleAddItem} className="text-white fw-bold" variant="info">
-          Add Items
+          Add Items <IoAddCircle className="fs-5 ms-1"/>
         </Button>
       </div>
       <div>

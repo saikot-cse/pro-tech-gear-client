@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import "react-toastify/dist/ReactToastify.css"
 import ManageInventory from "./Component/ManageInventory/ManageInventory";
 import ManageItem from "./Component/ManageItem/ManageItem";
 import Footer from "./Component/Shared/Footer/Footer";
@@ -17,8 +17,10 @@ import Inventory from "./Pages/Inventory/Inventory";
 import MyItems from "./Pages/MyItems/MyItems";
 import NotFound from "./Pages/NotFound/NotFound";
 function App() {
+  
   return (
     <div>
+      
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

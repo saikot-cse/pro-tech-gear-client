@@ -18,7 +18,7 @@ const Bannar = () => {
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>Welcome to Pro Tech Gear</h3>
+      <h3 className="fw-bold text-info">Welcome to Pro Tech Gear</h3>
       <p>You'll find one of the best and authentic product here.</p>
       <Button onClick={navigateToInventory} className="text-white" variant="info"><MdOutlineScreenSearchDesktop className="fs-5 mb-1 me-2" />Explore All</Button>
     </Carousel.Caption>
@@ -31,7 +31,7 @@ const Bannar = () => {
     />
 
     <Carousel.Caption>
-      <h3>Focused on Quality</h3>
+      <h3 className="fw-bold text-info">Focused on Quality</h3>
       <p>Quality means doing it right when no one is looking.</p>
     </Carousel.Caption>
   </Carousel.Item>
