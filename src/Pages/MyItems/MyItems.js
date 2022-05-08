@@ -37,7 +37,6 @@ const MyItems = () => {
         <span className="text-info"> Items</span>
       </h2>
       <div className="bg-info mx-auto rounded-3 mb-5" style={{ width: "175px", height: "4px" }}>
-        .
       </div>
       <div className="row">
         {items.map((product) => (
