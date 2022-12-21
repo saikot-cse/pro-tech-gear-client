@@ -5,7 +5,7 @@ const useProductDetails = (productId) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://aqueous-refuge-27157.herokuapp.com/product/${productId}`)
+    fetch(`https://pro-tech-gear-server.vercel.app/product/${productId}`)
       .then((res) => res.json())
       .then((data) => {
         setProduct(data);

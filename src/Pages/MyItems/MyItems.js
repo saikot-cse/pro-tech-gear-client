@@ -13,7 +13,7 @@ const MyItems = () => {
   useEffect(() => {
     const getMyItems = async () => {
       const email = user?.email;
-      const url = `https://aqueous-refuge-27157.herokuapp.com/myitems?email=${email}`;
+      const url = `https://pro-tech-gear-server.vercel.app/myitems?email=${email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setItems(data);
@@ -36,8 +36,7 @@ const MyItems = () => {
         My
         <span className="text-info"> Items</span>
       </h2>
-      <div className="bg-info mx-auto rounded-3 mb-5" style={{ width: "175px", height: "4px" }}>
-      </div>
+      <div className="bg-info mx-auto rounded-3 mb-5" style={{ width: "175px", height: "4px" }}></div>
       <div className="row">
         {items.map((product) => (
           <Product key={product._id} product={product} />

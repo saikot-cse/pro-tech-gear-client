@@ -25,7 +25,7 @@ const ManageItem = () => {
       quantity: newQuantity,
     };
 
-    const url = `https://aqueous-refuge-27157.herokuapp.com/product/${productId}`;
+    const url = `https://pro-tech-gear-server.vercel.app/product/${productId}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -51,7 +51,7 @@ const ManageItem = () => {
       quantity: newQuantity,
     };
 
-    const url = `https://aqueous-refuge-27157.herokuapp.com/product/${productId}`;
+    const url = `https://pro-tech-gear-server.vercel.app/product/${productId}`;
     fetch(url, {
       method: "PUT",
       headers: {

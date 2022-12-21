@@ -20,7 +20,7 @@ const AddItems = () => {
       quantity: e.target.quantity.value,
       email: e.target.email.value,
     };
-    const url = `https://aqueous-refuge-27157.herokuapp.com/product`;
+    const url = `https://pro-tech-gear-server.vercel.app/product`;
     fetch(url, {
       method: "POST",
       headers: {

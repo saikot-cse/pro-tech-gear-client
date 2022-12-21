@@ -15,7 +15,7 @@ const Product = ({ product, hideDelete, loading }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      fetch(`https://aqueous-refuge-27157.herokuapp.com/product/${id}`, {
+      fetch(`https://pro-tech-gear-server.vercel.app/product/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -46,9 +46,7 @@ const Product = ({ product, hideDelete, loading }) => {
           <div className="d-flex justify-content-between">
             {hideDelete !== undefined ? (
               <>
-              <motion.div whileHover={{ scale: 1.1 }}>
-
-              </motion.div>
+                <motion.div whileHover={{ scale: 1.1 }}></motion.div>
                 <Button onClick={() => handleManageItem(_id)} className="font-weight-bolder text-white mx-auto d-block" variant="info">
                   <MdCollections className="fs-5 mb-1" /> Stock Update
                 </Button>
@@ -66,7 +64,7 @@ const Product = ({ product, hideDelete, loading }) => {
           </div>
         </Card.Body>
       </Card>
-      </motion.div>
+    </motion.div>
   );
 };
 

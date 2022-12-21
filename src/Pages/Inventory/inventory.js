@@ -14,6 +14,7 @@ const Inventory = () => {
   const handleAddItem = () => {
     navigate("/add");
   };
+  console.log(setProducts);
   return (
     <div className="d-grid container">
       <Helmet>

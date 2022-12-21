@@ -7,7 +7,7 @@ const useToken = (user) => {
     const getToken = async () => {
       const email = user?.user?.email;
       if (email) {
-        const { data } = await axios.post("https://aqueous-refuge-27157.herokuapp.com/login", { email });
+        const { data } = await axios.post("https://pro-tech-gear-server.vercel.app/login", { email });
         setToken(data.accessToken);
         localStorage.setItem("accessToken", data.accessToken);
       }
